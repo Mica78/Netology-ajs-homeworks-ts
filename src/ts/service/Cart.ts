@@ -18,12 +18,13 @@ export default class Cart {
     }
 
     get totalAmount(): number {
-        let amount = 0;
-        /// почему-то reduce не хочет кушать
-        for (const item of this._items) {
-            amount += item.price;
-        }
-        return amount;
+        // let amount = 0;
+        // /// почему-то reduce не хочет кушать
+        // for (const item of this._items) {
+        //     amount += item.price;
+        // }
+        // return amount;
+        return this._items.reduce((acc: number, item: Buyable) => acc + item.price, 0);
     }
 
     getDiscountedTotalAmount(percentDiscount: number): number {
